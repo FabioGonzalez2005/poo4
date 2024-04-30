@@ -48,21 +48,22 @@ class Card:
     def cmp_value(self) -> int:
         '''Devuelve el valor (numérico) de la carta para comparar con otras.
         Tener en cuenta el AS.'''
-
+        return self.value
+        
     def __repr__(self):
         '''Devuelve el glifo de la carta'''
-        ...
+        return self.GLYPHS[self.suit] + self.value
 
     def __eq__(self, other: Card | object):
         '''Indica si dos cartas son iguales'''
 
     def __lt__(self, other: Card):
         '''Indica si una carta vale menos que otra'''
-        ...
+        return self.cmp_value < other.cmp_value
 
     def __gt__(self, other: Card):
         '''Indica si una carta vale más que otra'''
-        ...
+        return self.cmp_value > other.cmp_value
 
     def __add__(self, other: Card) -> Card:
         '''Suma de dos cartas:
