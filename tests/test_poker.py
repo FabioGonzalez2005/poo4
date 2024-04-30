@@ -1,6 +1,6 @@
 import pytest
 
-from tests.poker import Card, InvalidCardError
+from poker import Card, InvalidCardError
 
 
 @pytest.fixture

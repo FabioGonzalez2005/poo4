@@ -5,12 +5,7 @@ def load_card_glyphs(path: str = 'cards.dat') -> dict[str, str]:
     '''Retorna un diccionario donde las claves serán los palos
     y los valores serán cadenas de texto con los glifos de las
     cartas sin ningún separador'''
-    glyphs = {}
-    with open(path, 'r') as file:
-        for line in file:
-            suit, glyph = line.strip().split(':')
-            glyphs[suit] = glyph
-    return glyphs
+    ...
 
 
 class Card:
