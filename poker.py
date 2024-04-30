@@ -31,6 +31,16 @@ class Card:
 
         - self.suit deberá almacenar el palo de la carta '♣◆❤♠'.
         - self.value deberá almacenar el valor de la carta (1-13)'''
+        if suit not in (self.CLUBS, self.DIAMONDS, self.HEARTS, self.SPADES):
+            raise InvalidCardError(f'🃏 Invalid card: {repr(value)} is not a supported value')
+        
+        if isinstance(value, int):
+            if value < self.A_VALUE or value > self.K_VALUE:
+                raise InvalidCardError(f'🃏 Invalid card: {repr(value)} is not a supported value')
+            
+        elif value not in self.SYMBOLS:
+            raise InvalidCardError(f'🃏 Invalid card: {repr(value)} is not a supported value')
+        
         self.suit = suit
         self.value = value
 
@@ -38,7 +48,6 @@ class Card:
     def cmp_value(self) -> int:
         '''Devuelve el valor (numérico) de la carta para comparar con otras.
         Tener en cuenta el AS.'''
-        ...
 
     def __repr__(self):
         '''Devuelve el glifo de la carta'''
@@ -46,7 +55,6 @@ class Card:
 
     def __eq__(self, other: Card | object):
         '''Indica si dos cartas son iguales'''
-        ...
 
     def __lt__(self, other: Card):
         '''Indica si una carta vale menos que otra'''
