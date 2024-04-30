@@ -5,7 +5,7 @@ def load_card_glyphs(path: str = 'cards.dat') -> dict[str, str]:
     '''Retorna un diccionario donde las claves serán los palos
     y los valores serán cadenas de texto con los glifos de las
     cartas sin ningún separador'''
-    ...
+
 
 
 class Card:
@@ -32,14 +32,14 @@ class Card:
         - self.suit deberá almacenar el palo de la carta '♣◆❤♠'.
         - self.value deberá almacenar el valor de la carta (1-13)'''
         if suit not in (self.CLUBS, self.DIAMONDS, self.HEARTS, self.SPADES):
-            raise InvalidCardError(f'🃏 Invalid card: {repr(value)} is not a supported value')
+            raise InvalidCardError(f'🃏 Invalid card: {repr(suit)} is not a supported suit')
         
         if isinstance(value, int):
             if value < self.A_VALUE or value > self.K_VALUE:
                 raise InvalidCardError(f'🃏 Invalid card: {repr(value)} is not a supported value')
             
         elif value not in self.SYMBOLS:
-            raise InvalidCardError(f'🃏 Invalid card: {repr(value)} is not a supported value')
+            raise InvalidCardError(f'🃏 Invalid card: {repr(value)} is not a supported symbol')
         
         self.suit = suit
         self.value = value
