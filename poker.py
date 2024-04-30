@@ -8,7 +8,6 @@ def load_card_glyphs(path: str = 'cards.dat') -> dict[str, str]:
     diccionario = {'♣': "🃑🃒🃓🃔🃕🃖🃗🃘🃙🃚🃛🃝🃞", '◆': "🃁🃂🃃🃄🃅🃆🃇🃈🃉🃊🃋🃍🃎", '❤': "🂱🂲🂳🂴🂵🂶🂷🂸🂹🂺🂻🂽🂾", '♠': "🂡🂢🂣🂤🂥🂦🂧🂨🂩🂪🂫🂭🂮"}
     return diccionario
 
-
 class Card:
     CLUBS = '♣'
     DIAMONDS = '◆'
@@ -45,8 +44,6 @@ class Card:
             
         elif value not in self.SYMBOLS:
             raise InvalidCardError(f'🃏 Invalid card: {repr(value)} is not a supported symbol')
-
-
 
     @property
     def cmp_value(self) -> int:
