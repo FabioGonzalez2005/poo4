@@ -49,7 +49,16 @@ class Card:
     def cmp_value(self) -> int:
         '''Devuelve el valor (numérico) de la carta para comparar con otras.
         Tener en cuenta el AS.'''
-        return self.value
+        if self.value == 'J':
+            return 11
+        elif self.value == 'Q':
+            return 12
+        elif self.value == 'K':
+            return 13
+        elif self.value == 'A':
+            return 14
+        else:
+            return int(self.value)
         
     def __repr__(self):
         '''Devuelve el glifo de la carta'''
@@ -72,11 +81,11 @@ class Card:
         1. El nuevo palo será el de la carta más alta.
         2. El nuevo valor será la suma de los valores de las cartas. Si valor pasa
         de 13 se convertirá en un AS.'''
-        ...
+        
 
     def is_ace(self) -> bool:
         '''Indica si una carta es un AS'''
-        return self.value == self.A_VALUE
+        return self.value == 'A'
 
     @classmethod
     def get_available_suits(cls) -> str:
@@ -86,7 +95,7 @@ class Card:
     @classmethod
     def get_cards_by_suit(cls, suit: str):
         '''Función generadora que devuelve los glifos de las cartas por su palo'''
-        ...
+
 
 
 class InvalidCardError(Exception):
