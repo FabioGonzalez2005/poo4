@@ -5,8 +5,7 @@ def load_card_glyphs(path: str = 'cards.dat') -> dict[str, str]:
     '''Retorna un diccionario donde las claves serán los palos
     y los valores serán cadenas de texto con los glifos de las
     cartas sin ningún separador'''
-    diccionario = {'♣': "🃑🃒🃓🃔🃕🃖🃗🃘🃙🃚🃛🃝🃞", '◆': "🃁🃂🃃🃄🃅🃆🃇🃈🃉🃊🃋🃍🃎", '❤': "🂱🂲🂳🂴🂵🂶🂷🂸🂹🂺🂻🂽🂾", '♠': "🂡🂢🂣🂤🂥🂦🂧🂨🂩🂪🂫🂭🂮"}
-    return diccionario
+    return {'♣': "🃑🃒🃓🃔🃕🃖🃗🃘🃙🃚🃛🃝🃞", '◆': "🃁🃂🃃🃄🃅🃆🃇🃈🃉🃊🃋🃍🃎", '❤': "🂱🂲🂳🂴🂵🂶🂷🂸🂹🂺🂻🂽🂾", '♠': "🂡🂢🂣🂤🂥🂦🂧🂨🂩🂪🂫🂭🂮"}
 
 class Card:
     CLUBS = '♣'
@@ -56,13 +55,13 @@ class Card:
         elif self.value == 'K':
             return 13
         elif self.value == 'A':
-            return 14
+            return 1
         else:
             return int(self.value)
         
     def __repr__(self):
         '''Devuelve el glifo de la carta'''
-        return self.GLYPHS[self.suit] + self.value
+        return self.GLYPHS[self.suit] + str(self.cmp_value - 1)
 
     def __eq__(self, other: Card | object):
         '''Indica si dos cartas son iguales'''
@@ -95,7 +94,6 @@ class Card:
     @classmethod
     def get_cards_by_suit(cls, suit: str):
         '''Función generadora que devuelve los glifos de las cartas por su palo'''
-
 
 
 class InvalidCardError(Exception):
