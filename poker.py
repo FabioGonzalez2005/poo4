@@ -76,7 +76,7 @@ class Card:
 
     def is_ace(self) -> bool:
         '''Indica si una carta es un AS'''
-        ...
+        return self.value == self.A_VALUE
 
     @classmethod
     def get_available_suits(cls) -> str:
