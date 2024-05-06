@@ -107,7 +107,7 @@ class Card:
     @classmethod
     def get_cards_by_suit(cls, suit: str):
         '''Función generadora que devuelve los glifos de las cartas por su palo'''
-        
+        return cls.GLYPHS[suit]
 
 class InvalidCardError(Exception):
     '''Clase que representa un error de carta inválida.
