@@ -61,7 +61,7 @@ class Card:
         
     def __repr__(self):
         '''Devuelve el glifo de la carta'''
-        return self.GLYPHS[self.suit] + str(self.cmp_value - 1)
+        return self.GLYPHS[self.suit][self.cmp_value - 1]
 
     def __eq__(self, other: Card | object):
         '''Indica si dos cartas son iguales'''
@@ -80,7 +80,20 @@ class Card:
         1. El nuevo palo será el de la carta más alta.
         2. El nuevo valor será la suma de los valores de las cartas. Si valor pasa
         de 13 se convertirá en un AS.'''
-        
+        if self.value == 1:
+            total = 1
+            suitDefinitivo = self.suit
+        else:
+            total = self.cmp_value + other.cmp_value
+            if self.value < other.value:
+                suitDefinitivo = other.suit
+            else:
+                suitDefinitivo = self.suit
+        if total > 13:
+            total = 1
+        return Card(total, suitDefinitivo)
+
+            
 
     def is_ace(self) -> bool:
         '''Indica si una carta es un AS'''
@@ -94,7 +107,7 @@ class Card:
     @classmethod
     def get_cards_by_suit(cls, suit: str):
         '''Función generadora que devuelve los glifos de las cartas por su palo'''
-
+        
 
 class InvalidCardError(Exception):
     '''Clase que representa un error de carta inválida.
