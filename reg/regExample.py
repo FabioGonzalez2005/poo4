@@ -1,6 +1,6 @@
 import re
 
-class MinVox:
+class regExample:
     def __init__(self) -> None:
         pass
 
@@ -11,7 +11,14 @@ class MinVox:
         result = re.findall(patron, texto)
         return result
     
+    @staticmethod
+    def validURL(url:str) -> bool:
+        patron = "\\b[aeiou][^\\s., ]*"
+        result = re.findall(patron, url)
+        return result
+    
 if __name__ == "__main__":
+    url = "https://regex101.com"
     text = '''
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis finibus, odio sed lacinia posuere, mi ex placerat diam, id vestibulum libero nunc quis massa. Vestibulum quam dui, mollis vitae libero vitae, ornare mollis eros. Donec aliquet semper elit, vel consectetur magna semper a. Vestibulum mauris nisi, venenatis eget sapien ut, auctor faucibus urna. Fusce gravida ac nisi eu venenatis. Sed elementum dolor orci, at ornare ligula finibus ut. Donec ac massa risus. Aliquam imperdiet neque nec dui sollicitudin pharetra. Aenean finibus neque enim, in porttitor nisi finibus eu. Etiam dapibus enim ipsum. Mauris nec semper velit. Donec vitae ullamcorper odio, at posuere ipsum. In ut consequat augue. Curabitur non massa sollicitudin massa mattis luctus. Pellentesque posuere elit eu nunc laoreet accumsan.
 
@@ -23,4 +30,4 @@ Integer iaculis ornare nulla et ultricies. Donec dapibus sem ut dolor aliquam, i
 
 Pellentesque sem arcu, vulputate non nisl eu, mattis viverra magna. Mauris id scelerisque quam. Duis volutpat metus at rutrum scelerisque. Quisque purus diam, congue convallis augue ac, porta porttitor eros. Vestibulum consequat orci ac purus malesuada, in lacinia leo placerat. Donec pharetra sapien lectus, vitae dapibus enim facilisis nec. Vivamus fermentum, est vitae elementum porttitor, leo felis tempus nisi, quis mollis odio diam vel magna. Morbi a felis lacus. Proin mattis dictum tellus. Vivamus aliquam nibh venenatis eros maximus rutrum. Integer ante nunc, pellentesque ac dolor sit amet, vestibulum maximus sapien. Cras porttitor dolor convallis urna convallis iaculis. Sed vulputate leo sit amet augue faucibus rhoncus. Nunc consectetur, tortor a scelerisque efficitur, lectus metus porttitor leo, vel semper quam justo vel purus. Morbi placerat dapibus orci, sed consequat purus lacinia sed.
 '''
-    print(MinVox.buscar(text))
+    print(regExample.validURL(url))
