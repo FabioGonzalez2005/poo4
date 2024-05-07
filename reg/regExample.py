@@ -13,7 +13,7 @@ class regExample:
     
     @staticmethod
     def validURL(url:str) -> bool:
-        patron = "\\b[aeiou][^\\s., ]*"
+        patron = "^https?://.+(\w+[.#=]\w+[.#=]?)"
         result = re.findall(patron, url)
         return result
     
@@ -30,4 +30,3 @@ Integer iaculis ornare nulla et ultricies. Donec dapibus sem ut dolor aliquam, i
 
 Pellentesque sem arcu, vulputate non nisl eu, mattis viverra magna. Mauris id scelerisque quam. Duis volutpat metus at rutrum scelerisque. Quisque purus diam, congue convallis augue ac, porta porttitor eros. Vestibulum consequat orci ac purus malesuada, in lacinia leo placerat. Donec pharetra sapien lectus, vitae dapibus enim facilisis nec. Vivamus fermentum, est vitae elementum porttitor, leo felis tempus nisi, quis mollis odio diam vel magna. Morbi a felis lacus. Proin mattis dictum tellus. Vivamus aliquam nibh venenatis eros maximus rutrum. Integer ante nunc, pellentesque ac dolor sit amet, vestibulum maximus sapien. Cras porttitor dolor convallis urna convallis iaculis. Sed vulputate leo sit amet augue faucibus rhoncus. Nunc consectetur, tortor a scelerisque efficitur, lectus metus porttitor leo, vel semper quam justo vel purus. Morbi placerat dapibus orci, sed consequat purus lacinia sed.
 '''
-    print(regExample.validURL(url))
