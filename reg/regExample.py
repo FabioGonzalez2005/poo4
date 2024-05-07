@@ -1,6 +1,6 @@
 import re
 
-class regExample:
+class RegExample:
     def __init__(self) -> None:
         pass
 
@@ -13,12 +13,14 @@ class regExample:
     
     @staticmethod
     def validURL(url:str) -> bool:
-        patron = "^https?://.+(\w+[.#=]\w+[.#=]?)"
-        result = re.findall(patron, url)
-        return result
+        patron = "^https?://.+(\\w+[.#=]\\w+[.#=]?)"
+        result = re.search(patron, url)
+        if result is None:
+            return False
+        else:
+            return True
     
 if __name__ == "__main__":
-    url = "https://regex101.com"
     text = '''
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis finibus, odio sed lacinia posuere, mi ex placerat diam, id vestibulum libero nunc quis massa. Vestibulum quam dui, mollis vitae libero vitae, ornare mollis eros. Donec aliquet semper elit, vel consectetur magna semper a. Vestibulum mauris nisi, venenatis eget sapien ut, auctor faucibus urna. Fusce gravida ac nisi eu venenatis. Sed elementum dolor orci, at ornare ligula finibus ut. Donec ac massa risus. Aliquam imperdiet neque nec dui sollicitudin pharetra. Aenean finibus neque enim, in porttitor nisi finibus eu. Etiam dapibus enim ipsum. Mauris nec semper velit. Donec vitae ullamcorper odio, at posuere ipsum. In ut consequat augue. Curabitur non massa sollicitudin massa mattis luctus. Pellentesque posuere elit eu nunc laoreet accumsan.
 
