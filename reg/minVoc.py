@@ -7,7 +7,7 @@ class MinVox:
     @staticmethod
     def buscar(texto:str) -> list:
         #patrón palabras que empiezan en vocal minúscula
-        patron = "\b[aeiou][^\., ]*"
+        patron = "\\b[aeiou][^\\s., ]*"
         result = re.findall(patron, texto)
         return result
     
