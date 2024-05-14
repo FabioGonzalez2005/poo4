@@ -9,5 +9,3 @@ def test_obtenerPares():
     listaPrueba2 = [11, 12, 13, 14, 15, 16, 17, 18]
     manejador = ManejadorListas(listaPrueba2)
     assert manejador.obtenerPares() == [12, 14, 16, 18]
-
-    assert 
